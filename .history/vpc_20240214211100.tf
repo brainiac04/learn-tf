@@ -34,5 +34,5 @@ resource "aws_subnet" "learn_tf_subnet_p" {
 }
 
 resource "aws_internet_gateway" "learn_tf_ig" {
-  vpc_id = var.vpc_id
+  vpc_id = data.aws_vpc.learn_tf_vpc_d.id
 }

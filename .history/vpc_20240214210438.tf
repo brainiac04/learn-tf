@@ -5,8 +5,8 @@ resource "aws_vpc" "learn_tf_vpc" {
     Name = "learn_tf_vpc_v"
   }
 }
-/*
-data "aws_vpc" "learn_tf_vpc_d" {
+
+/*data "aws_vpc" "learn_tf_vpc_d" {
  id = var.vpc_id
 filter {
     name   = "tag:Name"
@@ -31,8 +31,4 @@ resource "aws_subnet" "learn_tf_subnet_p" {
     env = "dev"
     Name = "learn_tf_subnet_private"
   }
-}
-
-resource "aws_internet_gateway" "learn_tf_ig" {
-  vpc_id = var.vpc_id
 }

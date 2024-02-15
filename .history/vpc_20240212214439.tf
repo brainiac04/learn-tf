@@ -5,7 +5,7 @@ resource "aws_vpc" "learn_tf_vpc" {
     Name = "learn_tf_vpc_v"
   }
 }
-/*
+
 data "aws_vpc" "learn_tf_vpc_d" {
  id = var.vpc_id
 filter {
@@ -13,26 +13,13 @@ filter {
     values = ["learn_tf_vpc_v"]
 }
 }
-*/
 
 resource "aws_subnet" "learn_tf_subnet" {
   cidr_block = "192.168.54.0/26"
-  vpc_id = aws_vpc.learn_tf_vpc.id
-  tags = {
-    env = "dev"
-    Name = "learn_tf_subnet_public"
-  }
+  vpc_id = var.vpc_id
 }
 
 resource "aws_subnet" "learn_tf_subnet_p" {
  cidr_block = "192.168.54.64/26"
- vpc_id = aws_vpc.learn_tf_vpc.id
-   tags = {
-    env = "dev"
-    Name = "learn_tf_subnet_private"
-  }
-}
-
-resource "aws_internet_gateway" "learn_tf_ig" {
-  vpc_id = var.vpc_id
+ vpc_id = var.vpc_id
 }
